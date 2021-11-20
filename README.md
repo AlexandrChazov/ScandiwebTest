@@ -1,11 +1,11 @@
 # Scandiweb entry react developer TEST
 
 
-###Useful links:<br/>
+### Useful links:<br/>
 [Project repository](https://github.com/AlexandrChazov/scandiweb_test) <br/>
 [Scandiweb junior react endpoint](https://github.com/scandiweb/junior-react-endpoint) <br/>
 
-###How To Use:
+### How To Use:
 <ol>
     <li>Clone or download this repo:
         <ul>
