@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import {useQuery} from "@apollo/client";
+import {GET_CATEGORIES} from "./Query/categories";
 
 function App() {
+
+  const { data, loading/*, error, refetch*/ } = useQuery(GET_CATEGORIES);
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    if (!loading) {
+      setCategories(data.categories)
+    }
+  }, [data, loading])
+
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {categories.map((el: { name: string }, ind: number)=>{
+        return <button key={ind}>
+          {el.name}
+        </button>
+      })}
     </div>
   );
 }
