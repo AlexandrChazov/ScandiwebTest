@@ -1,34 +1,15 @@
-import {useQuery} from "@apollo/client";
-import {GET_CATEGORIES} from "../../Query/categories";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
-import {categoriesActions} from "../../redux/categoriesReducer";
+import styles from "./MainPage.module.css";
 
-export const MainPage = () => {
-
-  const {data, loading/*, error, refetch*/} = useQuery(GET_CATEGORIES);
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    if (!loading) {
-      setCategories(data.categories)
-    }
-  }, [data, loading])
-
-  if (loading) {
-    return <h1>Loading...</h1>
-  }
-
-  const setCategory = (name: string) => {
-    categoriesActions.setCategory(name)
-  }
+export const MainPage: React.FC<MainPagePropsType> = ({categories, setCategory}) => {
 
   return (
-    <div>
-      {categories.map((el: { name: string }) => {
+    <div className={styles.wrapper}>
+      {categories?.map((el: { name: string }) => {
         return (
           <div key={el.name}>
-            <NavLink to="/Categories" onClick={() => setCategory(el.name)}>
+            <NavLink to="/Categories" onClick={() => setCategory(el.name)} className={styles.link}>
               {el.name}
             </NavLink>
           </div>
@@ -36,4 +17,9 @@ export const MainPage = () => {
       })}
     </div>
   )
+}
+
+type MainPagePropsType = {
+  categories: Array<{ name: string }>
+  setCategory: (name: string) => void
 }
