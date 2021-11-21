@@ -1,30 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
-import {useQuery} from "@apollo/client";
-import {GET_CATEGORIES} from "./Query/categories";
+import {MainPage} from "./Components/MainPage/MainPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {CategoriesPage} from "./Components/CategoriesPage/CategoriesPage";
 
 function App() {
 
-  const { data, loading/*, error, refetch*/ } = useQuery(GET_CATEGORIES);
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    if (!loading) {
-      setCategories(data.categories)
-    }
-  }, [data, loading])
-
-  if (loading) {
-    return <h1>Loading...</h1>
-  }
-
   return (
     <div>
-      {categories.map((el: { name: string }, ind: number)=>{
-        return <button key={ind}>
-          {el.name}
-        </button>
-      })}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage/>}/>
+          <Route path="/Categories" element={<CategoriesPage/>}/>
+          <Route path="*" element={<div>Page not found</div>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
