@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import styles from "./CategoriesPage.module.css";
 import {useQuery} from "@apollo/client";
 import {GET_CATEGORY, ProductsType} from "../../Query/category";
+import styled from "styled-components";
 
 export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({category}) => {
 
@@ -22,25 +22,43 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({category}) =>
   }, [data])
 
   return (
-    <div className={styles.wrapper}>
+    <Main>
       <div>
         {category}
       </div>
-      <div className={styles.productCardWrapper}>
+      <ProductWrapper>
         {products?.map((el: ProductsType) => {
           return (
-            <div className={styles.productCard}>
-              <div className={styles.img}><img src={el.gallery[0]}/></div>
+            <div>
+              <Image><img src={el.gallery[0]}/></Image>
               <div>{el.name}</div>
               <div>{`${el.prices[0].currency} ${el.prices[0].amount}`}</div>
             </div>
           )
         })}
-      </div>
-    </div>
+      </ProductWrapper>
+    </Main>
   )
 }
 
 type CategoriesPagePropsType = {
   category: string
 }
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
+
+const ProductWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+`
+
+const Image = styled.div`
+  & > img {
+    width: 10em;
+  }
+`

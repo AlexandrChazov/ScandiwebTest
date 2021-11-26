@@ -1,21 +1,21 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import styles from "./MainPage.module.css";
+import styled from "styled-components";
 
 export const MainPage: React.FC<MainPagePropsType> = ({categories, setCategory}) => {
 
   return (
-    <div className={styles.wrapper}>
+    <Main>
       {categories?.map((el: { name: string }) => {
         return (
           <div key={el.name}>
-            <NavLink to="/Categories" onClick={() => setCategory(el.name)} className={styles.link}>
+            <StyledNavLink to="/Categories" onClick={() => setCategory(el.name)}>
               {el.name}
-            </NavLink>
+            </StyledNavLink>
           </div>
         )
       })}
-    </div>
+    </Main>
   )
 }
 
@@ -23,3 +23,25 @@ type MainPagePropsType = {
   categories: Array<{ name: string }>
   setCategory: (name: string) => void
 }
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  row-gap: 1em;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+`
+
+const StyledNavLink = styled(NavLink)`
+  font-size: 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  color: #3e3e3e;
+  
+  &:hover {
+    color: black;
+  }
+`
