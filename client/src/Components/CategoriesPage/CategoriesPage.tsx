@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_CATEGORY, ProductsType } from "../../Query/category";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import { Header } from "./Header";
 
-export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
-  category,
-}) => {
+export const CategoriesPage: React.FC<CategoriesPagePropsType> = () => {
+  const { pathname } = useLocation();
+  const splitedUrl = pathname.split("/");
+  const title = splitedUrl[splitedUrl.length - 1];
   const { data, loading /*, error, refetch*/ } = useQuery(GET_CATEGORY, {
     variables: {
       input: {
-        title: category,
+        title: `${title}`,
       },
     },
   });
@@ -20,17 +23,18 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
     if (!loading) {
       setProducts(data.category.products);
     }
-  }, [data]);
+  }, [data, loading]);
 
   return (
     <Main>
-      <div>{category}</div>
+      <Header />
+      <div>{title}</div>
       <ProductWrapper>
         {products?.map((el: ProductsType) => {
           return (
-            <div>
+            <div key={el.id}>
               <Image>
-                <img src={el.gallery[0]} />
+                <img src={el.gallery[0]} alt="product" />
               </Image>
               <div>{el.name}</div>
               <div>{`${el.prices[0].currency} ${el.prices[0].amount}`}</div>
@@ -42,9 +46,7 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
   );
 };
 
-type CategoriesPagePropsType = {
-  category: string;
-};
+type CategoriesPagePropsType = {};
 
 const Main = styled.div`
   display: flex;

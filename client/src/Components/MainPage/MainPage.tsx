@@ -2,19 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const MainPage: React.FC<MainPagePropsType> = ({
-  categories,
-  setCategory,
-}) => {
+export const MainPage: React.FC<MainPagePropsType> = ({ categories }) => {
   return (
     <Main>
       {categories?.map((el: { name: string }) => {
         return (
           <div key={el.name}>
-            <StyledNavLink
-              to="/Categories"
-              onClick={() => setCategory(el.name)}
-            >
+            <StyledNavLink to={`/categories/${el.name}`}>
               {el.name}
             </StyledNavLink>
           </div>
@@ -26,7 +20,6 @@ export const MainPage: React.FC<MainPagePropsType> = ({
 
 type MainPagePropsType = {
   categories: Array<{ name: string }>;
-  setCategory: (name: string) => void;
 };
 
 const Main = styled.div`

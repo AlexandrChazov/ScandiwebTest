@@ -11,24 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5281f96-d080-45af-9fe3-1d63a3c1f4d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Query/categories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Query/categories.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Query/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Query/category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/react-app-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/categoriesReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/categoriesReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reportWebVitals.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/setupTests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,10 +170,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state width="1419" height="252" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1638013771917" />
-    <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638017754017">
+    <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638022655782">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="583" y="132" key="RollbackChangesDialog/0.0.1440.860@0.0.1440.860" timestamp="1638017754017" />
+    <state x="583" y="132" key="RollbackChangesDialog/0.0.1440.860@0.0.1440.860" timestamp="1638022655782" />
     <state x="221" y="74" key="SettingsEditor" timestamp="1638017866869">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
