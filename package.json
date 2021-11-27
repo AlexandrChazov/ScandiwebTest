@@ -1,0 +1,28 @@
+{
+  "name": "scandiweb_test",
+  "version": "1.0.0",
+  "description": "\"online store\"",
+  "main": "client/src/index.tss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandrChazov/scandiweb_test.git"
+  },
+  "author": "AlexandrChazov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexandrChazov/scandiweb_test/issues"
+  },
+  "homepage": "https://github.com/AlexandrChazov/scandiweb_test#readme",
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "2.5.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

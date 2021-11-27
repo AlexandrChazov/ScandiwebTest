@@ -11,13 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5281f96-d080-45af-9fe3-1d63a3c1f4d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/.prettierignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +28,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="21B1YQbMWx0nfks2Z6HkQsKsCoE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,15 +48,35 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.CSS" />
-    <property name="ts.external.directory.path" value="D:\scandiweb_test\client\node_modules\typescript\lib" />
+    <property name="prettier.files.pattern" value="client/src/{**/*,*}.{js,ts,jsx,tsx}" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\scandiweb_test\node_modules\prettier" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="D:\scandiweb_test\server\node_modules\typescript\lib" />
   </component>
-  <component name="RunManager" selected="npm.start (1)">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\scandiweb_test" />
+      <recent name="D:\scandiweb_test\client" />
+      <recent name="D:\scandiweb_test\server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.prepare">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="prepare" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prepare" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -75,6 +104,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.prepare" />
         <item itemvalue="npm.start (1)" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
@@ -99,6 +129,7 @@
       <workItem from="1637562773765" duration="146000" />
       <workItem from="1637580406019" duration="1302000" />
       <workItem from="1637938862805" duration="4461000" />
+      <workItem from="1638010278276" duration="5692000" />
     </task>
     <servers />
   </component>
@@ -118,34 +149,42 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="500" y="184" key="FileChooserDialogImpl" timestamp="1637402048959">
+    <state x="495" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638011119306">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="500" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1637402048959" />
-    <state width="1419" height="197" key="GridCell.Tab.0.bottom" timestamp="1637940442347">
+    <state x="495" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860@0.0.1440.860" timestamp="1638011119306" />
+    <state x="500" y="184" key="FileChooserDialogImpl" timestamp="1638010275474">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="197" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1637940442347" />
-    <state width="1419" height="197" key="GridCell.Tab.0.center" timestamp="1637940442347">
+    <state x="500" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1638010275474" />
+    <state width="1419" height="252" key="GridCell.Tab.0.bottom" timestamp="1638013771917">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="197" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1637940442347" />
-    <state width="1419" height="197" key="GridCell.Tab.0.left" timestamp="1637940442346">
+    <state width="1419" height="252" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1638013771917" />
+    <state width="1419" height="252" key="GridCell.Tab.0.center" timestamp="1638013771917">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="197" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1637940442346" />
-    <state width="1419" height="197" key="GridCell.Tab.0.right" timestamp="1637940442347">
+    <state width="1419" height="252" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1638013771917" />
+    <state width="1419" height="252" key="GridCell.Tab.0.left" timestamp="1638013771917">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="197" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1637940442347" />
-    <state x="583" y="132" key="RollbackChangesDialog" timestamp="1637429417123">
+    <state width="1419" height="252" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1638013771917" />
+    <state width="1419" height="252" key="GridCell.Tab.0.right" timestamp="1638013771917">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="583" y="132" key="RollbackChangesDialog/0.0.1440.860@0.0.1440.860" timestamp="1637429417123" />
-    <state x="221" y="74" key="SettingsEditor" timestamp="1637508308490">
+    <state width="1419" height="252" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1638013771917" />
+    <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638012898443">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="221" y="74" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1637508308490" />
+    <state x="583" y="132" key="RollbackChangesDialog/0.0.1440.860@0.0.1440.860" timestamp="1638012898443" />
+    <state x="221" y="74" key="SettingsEditor" timestamp="1638013277412">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="221" y="74" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1638013277412" />
+    <state x="602" y="163" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1638010228886">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="602" y="163" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1440.860@0.0.1440.860" timestamp="1638010228886" />
     <state x="376" y="195" key="run.anything.popup" timestamp="1637508031610">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
