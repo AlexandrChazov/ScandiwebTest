@@ -1,1 +1,13 @@
-/**
+.husky
+.idea
+.gitignore
+.prettierignore
+.prettierrc.json
+package-lock.json
+package.json
+README.md
+
+node_modules
+server
+/client/*
+!/client/src/

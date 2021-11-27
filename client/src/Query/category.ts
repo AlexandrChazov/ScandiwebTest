@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const GET_CATEGORY = gql`
   query category($input: CategoryInput) {
@@ -14,16 +14,16 @@ export const GET_CATEGORY = gql`
       }
     }
   }
-`
+`;
 
 export type ProductsType = {
- id: number
- name: string
- gallery: string
- prices: Array<PricesType>
-}
+  id: number;
+  name: string;
+  gallery: string;
+  prices: Array<PricesType>;
+};
 
 type PricesType = {
-  currency: string
-  amount: number
-}
+  currency: string;
+  amount: number;
+};
