@@ -5,11 +5,11 @@ import styled from "styled-components";
 export const MainPage: React.FC<MainPagePropsType> = ({ categories }) => {
   return (
     <Main>
-      {categories?.map((el: { name: string }) => {
+      {categories?.map((category: { name: string }) => {
         return (
-          <div key={el.name}>
-            <StyledNavLink to={`/categories/${el.name}`}>
-              {el.name}
+          <div key={category.name}>
+            <StyledNavLink to={`/categories/${category.name}`}>
+              {category.name}
             </StyledNavLink>
           </div>
         );

@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_CATEGORY, ProductsType } from "../../Query/category";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
 import { Header } from "./Header";
+import { useUrlLastChild } from "../../Common/useUrlLastChild";
 
-export const CategoriesPage: React.FC<CategoriesPagePropsType> = () => {
-  const { pathname } = useLocation();
-  const splitedUrl = pathname.split("/");
-  const title = splitedUrl[splitedUrl.length - 1];
+export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
+  categories,
+}) => {
+  const category = useUrlLastChild();
   const { data, loading /*, error, refetch*/ } = useQuery(GET_CATEGORY, {
     variables: {
       input: {
-        title: `${title}`,
+        title: `${category}`,
       },
     },
   });
@@ -27,8 +27,8 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = () => {
 
   return (
     <Main>
-      <Header />
-      <CategoryName>Category name</CategoryName>
+      <Header categories={categories} />
+      <CategoryName>{category}</CategoryName>
       <ProductWrapper>
         {products?.map((el: ProductsType) => {
           return (
@@ -44,7 +44,9 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = () => {
   );
 };
 
-type CategoriesPagePropsType = {};
+type CategoriesPagePropsType = {
+  categories: Array<{ name: string }>;
+};
 
 const Main = styled.div`
   display: flex;
@@ -56,6 +58,7 @@ const CategoryName = styled.div`
   font-size: 2.6em;
   letter-spacing: 0.03em;
   margin: 2em 0em 0em 2.4em;
+  text-transform: uppercase;
 `;
 
 const ProductWrapper = styled.div`
@@ -68,6 +71,10 @@ const ProductWrapper = styled.div`
 
 const ProductCard = styled.div`
   justify-self: center;
+  box-shadow: 0px 0px 7px 0.5px #c3c3c3;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ProductImage = styled.img`
@@ -84,4 +91,5 @@ const ProductPrice = styled.div`
   text-align: start;
   padding-top: 0.6em;
   padding-left: 3.4em;
+  margin-bottom: 1em;
 `;

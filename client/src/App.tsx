@@ -25,15 +25,17 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainPage categories={categories} />} />
+
           {categories?.map((cat: { name: string }) => {
             return (
               <Route
                 path={`/categories/${cat.name}`}
                 key={cat.name}
-                element={<CategoriesPage />}
+                element={<CategoriesPage categories={categories} />}
               />
             );
           })}
+
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
       </BrowserRouter>
