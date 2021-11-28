@@ -61,8 +61,9 @@ const CategoryName = styled.div`
 const ProductWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 8.7em;
   text-align: center;
-  padding-top: 8em;
+  padding: 8em 0em;
 `;
 
 const ProductCard = styled.div`
