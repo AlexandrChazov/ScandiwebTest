@@ -28,17 +28,15 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = () => {
   return (
     <Main>
       <Header />
-      <div>{title}</div>
+      <CategoryName>Category name</CategoryName>
       <ProductWrapper>
         {products?.map((el: ProductsType) => {
           return (
-            <div key={el.id}>
-              <Image>
-                <img src={el.gallery[0]} alt="product" />
-              </Image>
-              <div>{el.name}</div>
-              <div>{`${el.prices[0].currency} ${el.prices[0].amount}`}</div>
-            </div>
+            <ProductCard key={el.id}>
+              <ProductImage src={el.gallery[0]} alt="product" />
+              <ProductName>{el.name}</ProductName>
+              <ProductPrice>{`${el.prices[0].currency} ${el.prices[0].amount}`}</ProductPrice>
+            </ProductCard>
           );
         })}
       </ProductWrapper>
@@ -54,14 +52,35 @@ const Main = styled.div`
   height: 100vh;
 `;
 
+const CategoryName = styled.div`
+  font-size: 2.6em;
+  letter-spacing: 0.03em;
+  margin: 2em 0em 0em 2.4em;
+`;
+
 const ProductWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
+  padding-top: 8em;
 `;
 
-const Image = styled.div`
-  & > img {
-    width: 10em;
-  }
+const ProductCard = styled.div`
+  justify-self: center;
+`;
+
+const ProductImage = styled.img`
+  width: 22em;
+  height: 20.6em;
+`;
+
+const ProductName = styled.div`
+  text-align: start;
+  padding-top: 1.5em;
+  padding-left: 3.4em;
+`;
+const ProductPrice = styled.div`
+  text-align: start;
+  padding-top: 0.6em;
+  padding-left: 3.4em;
 `;
