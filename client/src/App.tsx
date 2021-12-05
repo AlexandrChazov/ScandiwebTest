@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 import "./App.css";
 import { MainPage } from "./Components/MainPage/MainPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CategoriesPage } from "./Components/CategoriesPage/CategoriesPage";
-import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES } from "./Query/categories";
 
-function App() {
-  const { data, loading /*, error, refetch*/ } = useQuery(GET_CATEGORIES);
+export const App = () => {
+  const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORIES);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -26,21 +26,17 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage categories={categories} />} />
 
-          {categories?.map((cat: { name: string }) => {
-            return (
-              <Route
-                path={`/categories/${cat.name}`}
-                key={cat.name}
-                element={<CategoriesPage categories={categories} />}
-              />
-            );
-          })}
+          {categories?.map((cat: { name: string }) => (
+            <Route
+              path={`/categories/${cat.name}`}
+              key={cat.name}
+              element={<CategoriesPage categories={categories} />}
+            />
+          ))}
 
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
       </BrowserRouter>
     </div>
   );
-}
-
-export default App;
+};
