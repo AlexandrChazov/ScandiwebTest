@@ -1,52 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_CATEGORY, ProductsType } from "../../Query/category";
 import styled from "styled-components";
+import { GET_CATEGORY, ProductsType } from "../../query/category";
 import { Header } from "./Header";
-import { useUrlLastChild } from "../../Common/useUrlLastChild";
-
-export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
-  categories,
-}) => {
-  const category = useUrlLastChild();
-  const { data, loading /*, error, refetch*/ } = useQuery(GET_CATEGORY, {
-    variables: {
-      input: {
-        title: `${category}`,
-      },
-    },
-  });
-
-  const [products, setProducts] = useState([] as Array<ProductsType>);
-
-  useEffect(() => {
-    if (!loading) {
-      setProducts(data.category.products);
-    }
-  }, [data, loading]);
-
-  return (
-    <Main>
-      <Header categories={categories} />
-      <CategoryName>{category}</CategoryName>
-      <ProductWrapper>
-        {products?.map((el: ProductsType) => {
-          return (
-            <ProductCard key={el.id}>
-              <ProductImage src={el.gallery[0]} alt="product" />
-              <ProductName>{el.name}</ProductName>
-              <ProductPrice>{`${el.prices[0].currency} ${el.prices[0].amount}`}</ProductPrice>
-            </ProductCard>
-          );
-        })}
-      </ProductWrapper>
-    </Main>
-  );
-};
-
-type CategoriesPagePropsType = {
-  categories: Array<{ name: string }>;
-};
+import { useUrlLastChild } from "../../common/useUrlLastChild";
 
 const Main = styled.div`
   display: flex;
@@ -93,3 +50,44 @@ const ProductPrice = styled.div`
   padding-left: 3.4em;
   margin-bottom: 1em;
 `;
+
+export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
+  categories
+}) => {
+  const category = useUrlLastChild();
+  const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORY, {
+    variables: {
+      input: {
+        title: `${category}`
+      }
+    }
+  });
+
+  const [products, setProducts] = useState([] as Array<ProductsType>);
+
+  useEffect(() => {
+    if (!loading) {
+      setProducts(data.category.products);
+    }
+  }, [data, loading]);
+
+  return (
+    <Main>
+      <Header categories={categories} />
+      <CategoryName>{category}</CategoryName>
+      <ProductWrapper>
+        {products?.map((el: ProductsType) => (
+          <ProductCard key={el.id}>
+            <ProductImage src={el.gallery[0]} alt="product" />
+            <ProductName>{el.name}</ProductName>
+            <ProductPrice>{`${el.prices[0].currency} ${el.prices[0].amount}`}</ProductPrice>
+          </ProductCard>
+        ))}
+      </ProductWrapper>
+    </Main>
+  );
+};
+
+type CategoriesPagePropsType = {
+  categories: Array<{ name: string }>;
+};

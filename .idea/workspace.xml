@@ -11,15 +11,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5281f96-d080-45af-9fe3-1d63a3c1f4d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/hooks/redux.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/store/reducers/headerSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Common/useUrlLastChild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/common/useUrlLastChild.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Query/categories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/query/categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Query/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/query/category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/models/IProducts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/EUR.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/EUR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/JPY.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/JPY.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/USD.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/USD.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/dollarIcon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reportWebVitals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/categoriesReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/reducers/categoriesSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -54,7 +69,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.stylelint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.eslint" value="D:\scandiweb_test\client\node_modules\eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -65,13 +80,16 @@
     <property name="ts.external.directory.path" value="D:\scandiweb_test\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\scandiweb_test\client\src\store\reducers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\scandiweb_test" />
       <recent name="D:\scandiweb_test\client" />
       <recent name="D:\scandiweb_test\server" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.start (1)">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
@@ -114,10 +132,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.start (1)" />
-        <item itemvalue="npm.prepare" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.prepare" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +163,26 @@
       <workItem from="1638163620348" duration="1239000" />
       <workItem from="1638625546174" duration="6611000" />
       <workItem from="1638636610214" duration="4577000" />
-      <workItem from="1638679196782" duration="2481000" />
+      <workItem from="1638679196782" duration="4038000" />
+      <workItem from="1638683262469" duration="251000" />
+      <workItem from="1638683544596" duration="194000" />
+      <workItem from="1638683756249" duration="61000" />
+      <workItem from="1638683833808" duration="213000" />
+      <workItem from="1638684063264" duration="116000" />
+      <workItem from="1638684194543" duration="290000" />
+      <workItem from="1638684504184" duration="3904000" />
+      <workItem from="1638698414289" duration="635000" />
+      <workItem from="1638716912310" duration="8782000" />
+      <workItem from="1638729250352" duration="1304000" />
+      <workItem from="1638768489328" duration="6772000" />
+      <workItem from="1638778494478" duration="241000" />
+      <workItem from="1638816281147" duration="1089000" />
+      <workItem from="1638861053616" duration="23000" />
+      <workItem from="1639401957506" duration="97000" />
+      <workItem from="1639999565710" duration="1314000" />
+      <workItem from="1640070138275" duration="19000" />
+      <workItem from="1640493925375" duration="6181000" />
+      <workItem from="1640576103901" duration="10580000" />
     </task>
     <servers />
   </component>
@@ -165,42 +202,54 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="434" y="191" key="#ESLint" timestamp="1638684082162">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="434" y="191" key="#ESLint/0.0.1440.860@0.0.1440.860" timestamp="1638684082162" />
     <state x="495" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638011119306">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="495" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860@0.0.1440.860" timestamp="1638011119306" />
-    <state x="92" y="92" width="1256" height="676" key="DiffContextDialog" timestamp="1638111743676">
+    <state x="98" y="219" width="1256" height="676" key="DiffContextDialog" timestamp="1638727428623">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="92" y="92" width="1256" height="676" key="DiffContextDialog/0.0.1440.860@0.0.1440.860" timestamp="1638111743676" />
-    <state x="500" y="184" key="FileChooserDialogImpl" timestamp="1638010275474">
+    <state x="98" y="219" width="1256" height="676" key="DiffContextDialog/0.0.1440.860@0.0.1440.860" timestamp="1638727428623" />
+    <state x="241" y="133" key="EditFileWatcherDialog" timestamp="1638816701527">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="500" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1638010275474" />
-    <state width="1419" height="172" key="GridCell.Tab.0.bottom" timestamp="1638635020134">
+    <state x="241" y="133" key="EditFileWatcherDialog/0.0.1440.860@0.0.1440.860" timestamp="1638816701527" />
+    <state x="500" y="184" key="FileChooserDialogImpl" timestamp="1638778733733">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="172" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1638635020134" />
-    <state width="1419" height="172" key="GridCell.Tab.0.center" timestamp="1638635020134">
+    <state x="500" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1638778733733" />
+    <state x="0" y="0" key="FileDocumentManager.FileCacheConflict" timestamp="1640582710214">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="172" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1638635020134" />
-    <state width="1419" height="172" key="GridCell.Tab.0.left" timestamp="1638635020134">
+    <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1440.860@0.0.1440.860" timestamp="1640582710214" />
+    <state width="1419" height="181" key="GridCell.Tab.0.bottom" timestamp="1640587378830">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="172" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1638635020134" />
-    <state width="1419" height="172" key="GridCell.Tab.0.right" timestamp="1638635020134">
+    <state width="1419" height="181" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1640587378830" />
+    <state width="1419" height="181" key="GridCell.Tab.0.center" timestamp="1640587378830">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="172" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1638635020134" />
+    <state width="1419" height="181" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1640587378830" />
+    <state width="1419" height="181" key="GridCell.Tab.0.left" timestamp="1640587378829">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1419" height="181" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1640587378829" />
+    <state width="1419" height="181" key="GridCell.Tab.0.right" timestamp="1640587378830">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1419" height="181" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1640587378830" />
     <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638022655782">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="583" y="132" key="RollbackChangesDialog/0.0.1440.860@0.0.1440.860" timestamp="1638022655782" />
-    <state x="223" y="149" key="SettingsEditor" timestamp="1638680336009">
+    <state x="101" y="0" key="SettingsEditor" timestamp="1638816714902">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="223" y="149" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1638680336009" />
+    <state x="101" y="0" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1638816714902" />
     <state x="602" y="163" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1638010228886">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -209,5 +258,13 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="376" y="195" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1637508031610" />
+    <state x="391" y="213" key="scopes" timestamp="1638687091545">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="391" y="213" key="scopes/0.0.1440.860@0.0.1440.860" timestamp="1638687091545" />
+    <state x="376" y="83" width="670" height="676" key="search.everywhere.popup" timestamp="1638725210719">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="376" y="83" width="670" height="676" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1638725210719" />
   </component>
 </project>

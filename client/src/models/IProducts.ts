@@ -1,29 +1,29 @@
-export type ProductType = {
+export interface Product {
   id: string;
   name: string;
   inStock: boolean;
   gallery: string;
   description: string;
   category: string;
-  attributes: AttributeSetType;
-  prices: PriceType;
+  attributes: AttributeSet;
+  prices: Price;
   brand: string;
-};
+}
 
-export type AttributeSetType = {
+export interface AttributeSet {
   id: string;
   name: string;
   type: string;
-  items: AttributeType;
-};
+  items: Attribute;
+}
 
-export type AttributeType = {
+export interface Attribute {
   displayValue: string;
   value: string;
   id: string;
-};
+}
 
-export type PriceType = {
+export interface Price {
   currency: string;
   amount: number;
-};
+}

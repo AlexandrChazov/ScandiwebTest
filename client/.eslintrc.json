@@ -20,8 +20,18 @@
         "react",
         "@typescript-eslint"
     ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    },
     "rules": {
+        "max-len": ["error", { "code": 130 }],
+        "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+        "linebreak-style": ["error", "unix"],
         "no-use-before-define": "off",
+        "no-unsafe-optional-chaining": "off",
+        "no-nonoctal-decimal-escape": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
         "import/extensions": [
@@ -34,12 +44,7 @@
         ],
         "quotes": [2, "double", { "avoidEscape": true }],
         "import/prefer-default-export": "off",
-        "react/function-component-definition": [
-            2,
-            {
-                "namedComponents": "arrow-function"
-            }
-        ],
+        "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
         "comma-dangle": ["error", {
             "arrays": "never",
             "objects": "never",
@@ -47,10 +52,5 @@
             "exports": "never",
             "functions": "never"
         }]
-    },
-    "settings": {
-        "import/resolver": {
-        "typescript": {}
-        }
     }
 }

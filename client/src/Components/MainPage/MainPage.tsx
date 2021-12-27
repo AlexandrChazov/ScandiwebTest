@@ -2,26 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const MainPage: React.FC<MainPagePropsType> = ({ categories }) => {
-  return (
-    <Main>
-      {categories?.map((category: { name: string }) => {
-        return (
-          <div key={category.name}>
-            <StyledNavLink to={`/categories/${category.name}`}>
-              {category.name}
-            </StyledNavLink>
-          </div>
-        );
-      })}
-    </Main>
-  );
-};
-
-type MainPagePropsType = {
-  categories: Array<{ name: string }>;
-};
-
 const Main = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,3 +23,19 @@ const StyledNavLink = styled(NavLink)`
     color: black;
   }
 `;
+
+export const MainPage: React.FC<MainPagePropsType> = ({ categories }) => (
+  <Main>
+    {categories?.map((category: { name: string }) => (
+      <div key={category.name}>
+        <StyledNavLink to={`/categories/${category.name}`}>
+          {category.name}
+        </StyledNavLink>
+      </div>
+    ))}
+  </Main>
+);
+
+type MainPagePropsType = {
+  categories: Array<{ name: string }>;
+};
