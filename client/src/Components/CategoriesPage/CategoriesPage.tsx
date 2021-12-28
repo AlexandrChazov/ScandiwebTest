@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 import { GET_CATEGORY, ProductsType } from "../../query/category";
-import { Header } from "./Header";
+import { availableCurrency, Header } from "./Header";
 import { useUrlLastChild } from "../../common/useUrlLastChild";
+import { useAppSelector } from "../../hooks/redux";
 
 const Main = styled.div`
   display: flex;
@@ -44,12 +45,28 @@ const ProductName = styled.div`
   padding-top: 1.5em;
   padding-left: 3.4em;
 `;
+
 const ProductPrice = styled.div`
+  display: flex;
   text-align: start;
   padding-top: 0.6em;
   padding-left: 3.4em;
   margin-bottom: 1em;
 `;
+
+const CurrencyLogo = styled.img`
+  width: 1em;
+  margin-right: 0.3em;
+`;
+
+// eslint-disable-next-line no-shadow
+enum CurrencyEnum {
+  USD,
+  GBP,
+  AUD,
+  JPY,
+  RUB
+}
 
 export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
   categories
@@ -64,6 +81,7 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
   });
 
   const [products, setProducts] = useState([] as Array<ProductsType>);
+  const { currency } = useAppSelector((state) => state.header);
 
   useEffect(() => {
     if (!loading) {
@@ -80,7 +98,13 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
           <ProductCard key={el.id}>
             <ProductImage src={el.gallery[0]} alt="product" />
             <ProductName>{el.name}</ProductName>
-            <ProductPrice>{`${el.prices[0].currency} ${el.prices[0].amount}`}</ProductPrice>
+            <ProductPrice>
+              <CurrencyLogo
+                src={availableCurrency.img[CurrencyEnum[currency]]}
+                alt={availableCurrency.name[CurrencyEnum[currency]]}
+              />
+              {`${el.prices[CurrencyEnum[currency]].amount}`}
+            </ProductPrice>
           </ProductCard>
         ))}
       </ProductWrapper>
@@ -88,6 +112,6 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
   );
 };
 
-type CategoriesPagePropsType = {
+interface CategoriesPagePropsType {
   categories: Array<{ name: string }>;
-};
+}

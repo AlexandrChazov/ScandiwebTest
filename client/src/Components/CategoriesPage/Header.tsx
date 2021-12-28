@@ -4,11 +4,14 @@ import { NavLink } from "react-router-dom";
 import brandIcon from "../../assets/VSF.png";
 import emptyCartIcon from "../../assets/empty_cart.png";
 import USD from "../../assets/USD.png";
-import EUR from "../../assets/EUR.png";
+import GBP from "../../assets/GBP.png";
 import JPY from "../../assets/JPY.png";
+import AUD from "../../assets/AUD.png";
+import RUB from "../../assets/RUB.png";
 import { useUrlLastChild } from "../../common/useUrlLastChild";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { setCurrency } from "../../store/reducers/headerSlice";
+import { AvailableCurrency } from "../../models/IProducts";
 
 const Wrapper = styled.div`
   display: grid;
@@ -82,10 +85,15 @@ const CurrencyInput = styled.div<{ isOpen: string }>`
 `;
 
 const CurrencyInputItem = styled.div`
+  display: flex;
   margin: 0.5em auto;
   &:hover {
     cursor: pointer;
   }
+`;
+
+const CurrencyImage = styled.img`
+  width: 1em;
 `;
 
 const EmptyCartIcon = styled.img`
@@ -100,21 +108,17 @@ type HeaderPropsType = {
   categories: Array<{ name: string }>;
 };
 
+export const availableCurrency = {
+  name: ["USD", "GBP", "AUD", "JPY", "RUB"] as Array<AvailableCurrency>,
+  img: [USD, GBP, AUD, JPY, RUB]
+};
+
 export const Header: React.FC<HeaderPropsType> = ({ categories }) => {
   const category = useUrlLastChild();
   const [activeLink, setActivLink] = useState(category);
   const [isOpen, setIsOpen] = useState(false);
   const { currency } = useAppSelector((state) => state.header);
   const dispatch = useAppDispatch();
-
-  let mySrc;
-  if (currency === "USD") {
-    mySrc = USD;
-  } else if (currency === "EUR") {
-    mySrc = EUR;
-  } else {
-    mySrc = JPY;
-  }
 
   return (
     <Wrapper>
@@ -135,7 +139,7 @@ export const Header: React.FC<HeaderPropsType> = ({ categories }) => {
       <BrandIcon src={brandIcon} alt="VSF" />
       <RightMenu>
         <CurrencyIcon
-          src={mySrc}
+          src={availableCurrency.img[availableCurrency.name.indexOf(currency)]}
           alt="currencyIcon"
           onClick={() => setIsOpen(!isOpen)}
         />
@@ -143,24 +147,17 @@ export const Header: React.FC<HeaderPropsType> = ({ categories }) => {
           isOpen={isOpen.toString()}
           onClick={() => setIsOpen(false)}
         >
-          <CurrencyInputItem
-            onClick={() => dispatch(setCurrency("USD"))}
-          >
-            <img src={USD} alt="USD" />
-            <span>USD</span>
-          </CurrencyInputItem>
-          <CurrencyInputItem
-            onClick={() => dispatch(setCurrency("EUR"))}
-          >
-            <img src={EUR} alt="EUR" />
-            <span>EUR</span>
-          </CurrencyInputItem>
-          <CurrencyInputItem
-            onClick={() => dispatch(setCurrency("JPY"))}
-          >
-            <img src={JPY} alt="JPY" />
-            <span>JPY</span>
-          </CurrencyInputItem>
+          {availableCurrency.name.map(
+            (name: AvailableCurrency, index: number) => (
+              <CurrencyInputItem
+                key={name}
+                onClick={() => dispatch(setCurrency(name))}
+              >
+                <CurrencyImage src={availableCurrency.img[index]} alt={name} />
+                <span>{name}</span>
+              </CurrencyInputItem>
+            )
+          )}
         </CurrencyInput>
         <EmptyCartIcon src={emptyCartIcon} alt="emptyCart" />
       </RightMenu>

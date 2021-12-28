@@ -24,6 +24,8 @@ export interface Attribute {
 }
 
 export interface Price {
-  currency: string;
+  currency: AvailableCurrency;
   amount: number;
 }
+
+export type AvailableCurrency = "USD" | "GBP" | "AUD" | "JPY" | "RUB";

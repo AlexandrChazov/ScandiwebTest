@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AvailableCurrency } from "../../models/IProducts";
 
 interface Header {
-  currency: "USD" | "EUR" | "JPY";
+  currency: AvailableCurrency;
 }
 
 const initialState: Header = {
@@ -12,7 +13,7 @@ export const headerSlice = createSlice({
   name: "header",
   initialState,
   reducers: {
-    setCurrency: (state, action: PayloadAction<"USD" | "EUR" | "JPY">) => {
+    setCurrency: (state, action: PayloadAction<AvailableCurrency>) => {
       state.currency = action.payload;
     }
   }
