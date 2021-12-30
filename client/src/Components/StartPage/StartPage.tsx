@@ -24,7 +24,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export const MainPage: React.FC<MainPagePropsType> = ({ categories }) => (
+export const StartPage: React.FC<MainPagePropsType> = ({ categories }) => (
   <Main>
     {categories?.map((category: { name: string }) => (
       <div key={category.name}>

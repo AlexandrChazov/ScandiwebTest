@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import { GET_PRODUCT, Product } from "../../query/product";
-import { useUrlLastChild } from "../../common/useUrlLastChild";
 
 export const ProductInfo = () => {
-  const productId = useUrlLastChild();
+  const { productId } = useParams();
   const {
     data, loading, error, refetch
   } = useQuery(GET_PRODUCT, {

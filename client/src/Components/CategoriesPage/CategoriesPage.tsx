@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 import {
-  NavLink, Outlet, Route, Routes
+  NavLink, useParams
 } from "react-router-dom";
 import { GET_CATEGORY, ProductsType } from "../../query/category";
 import { availableCurrency, Header } from "./Header";
-import { useUrlLastChild } from "../../common/useUrlLastChild";
 import { useAppSelector } from "../../hooks/redux";
-import { ProductInfo } from "../ProductInfo/ProductInfo";
 
 const Main = styled.div`
   display: flex;
@@ -72,10 +70,8 @@ enum CurrencyEnum {
   RUB
 }
 
-export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
-  categories
-}) => {
-  const category = useUrlLastChild();
+export const CategoriesPage = () => {
+  const { category } = useParams();
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORY, {
     variables: {
       input: {
@@ -95,8 +91,6 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
 
   return (
     <Main>
-      <Header categories={categories} />
-      <Outlet />
       <CategoryName>{category}</CategoryName>
       <ProductWrapper>
         {products?.map((product) => (
@@ -118,7 +112,3 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
     </Main>
   );
 };
-
-interface CategoriesPagePropsType {
-  categories: Array<{ name: string }>;
-}

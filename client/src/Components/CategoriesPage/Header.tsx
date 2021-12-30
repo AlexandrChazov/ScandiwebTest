@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import brandIcon from "../../assets/VSF.png";
 import emptyCartIcon from "../../assets/empty_cart.png";
 import USD from "../../assets/USD.png";
@@ -8,10 +8,10 @@ import GBP from "../../assets/GBP.png";
 import JPY from "../../assets/JPY.png";
 import AUD from "../../assets/AUD.png";
 import RUB from "../../assets/RUB.png";
-import { useUrlLastChild } from "../../common/useUrlLastChild";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { setCurrency } from "../../store/reducers/headerSlice";
 import { AvailableCurrency } from "../../models/IProducts";
+import { GetCategories } from "../../App";
 
 const Wrapper = styled.div`
   display: grid;
@@ -104,8 +104,8 @@ const EmptyCartIcon = styled.img`
   }
 `;
 
-type HeaderPropsType = {
-  categories: Array<{ name: string }>;
+type PropsType = {
+  categories: Array<GetCategories>;
 };
 
 export const availableCurrency = {
@@ -113,8 +113,8 @@ export const availableCurrency = {
   img: [USD, GBP, AUD, JPY, RUB]
 };
 
-export const Header: React.FC<HeaderPropsType> = ({ categories }) => {
-  const category = useUrlLastChild();
+export const Header: React.FC<PropsType> = ({ categories }) => {
+  const { category } = useParams();
   const [activeLink, setActivLink] = useState(category);
   const [isOpen, setIsOpen] = useState(false);
   const { currency } = useAppSelector((state) => state.header);
@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderPropsType> = ({ categories }) => {
   return (
     <Wrapper>
       <LeftMenu>
-        {categories.map((cat: { name: string }) => (
+        {categories.map((cat) => (
           <Category
             key={cat.name}
             to={`/${cat.name}`}

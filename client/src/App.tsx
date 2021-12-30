@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useQuery } from "@apollo/client";
-import { MainPage } from "./Components/MainPage/MainPage";
+import { StartPage } from "./Components/StartPage/StartPage";
 import { CategoriesPage } from "./Components/CategoriesPage/CategoriesPage";
 import { GET_CATEGORIES } from "./query/categories";
 import { ProductInfo } from "./Components/ProductInfo/ProductInfo";
+import { MainContent } from "./Components/MainContent/MainContent";
 
 export const App = () => {
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORIES);
@@ -24,30 +25,17 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage categories={categories} />} />
-
-        {categories?.map((category) => (
-          <Route
-            path={`${category.name}`}
-            element={<CategoriesPage categories={categories} />}
-          />
-        ))}
-        {categories?.map((category) => {
-          const categoryLink = category.name;
-          return category.products.map((product) => <Route path={`${categoryLink}/${product.id}`} element={<ProductInfo />} />);
-        })}
-
+        <Route path="/" element={<StartPage categories={categories} />} />
+        <Route path=":category" element={<MainContent categories={categories} />}>
+          <Route index element={<CategoriesPage />} />
+          <Route path=":productId" element={<ProductInfo />} />
+        </Route>
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
     </BrowserRouter>
   );
 };
 
-interface GetCategories {
-  name: string
-  products: Array<Product>
-}
-
-export interface Product {
-  id: string
+export interface GetCategories {
+  name: string;
 }
