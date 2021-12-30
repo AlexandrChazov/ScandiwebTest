@@ -28,7 +28,7 @@ export const MainPage: React.FC<MainPagePropsType> = ({ categories }) => (
   <Main>
     {categories?.map((category: { name: string }) => (
       <div key={category.name}>
-        <StyledNavLink to={`/categories/${category.name}`}>
+        <StyledNavLink to={`/${category.name}`}>
           {category.name}
         </StyledNavLink>
       </div>

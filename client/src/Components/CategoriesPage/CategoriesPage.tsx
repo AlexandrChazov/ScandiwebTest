@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
+import {
+  NavLink, Outlet, Route, Routes
+} from "react-router-dom";
 import { GET_CATEGORY, ProductsType } from "../../query/category";
 import { availableCurrency, Header } from "./Header";
 import { useUrlLastChild } from "../../common/useUrlLastChild";
 import { useAppSelector } from "../../hooks/redux";
+import { ProductInfo } from "../ProductInfo/ProductInfo";
 
 const Main = styled.div`
   display: flex;
@@ -75,7 +79,7 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORY, {
     variables: {
       input: {
-        title: `${category}`
+        title: category
       }
     }
   });
@@ -85,25 +89,28 @@ export const CategoriesPage: React.FC<CategoriesPagePropsType> = ({
 
   useEffect(() => {
     if (!loading) {
-      setProducts(data.category.products);
+      setProducts(data?.category?.products);
     }
   }, [data, loading]);
 
   return (
     <Main>
       <Header categories={categories} />
+      <Outlet />
       <CategoryName>{category}</CategoryName>
       <ProductWrapper>
-        {products?.map((el: ProductsType) => (
-          <ProductCard key={el.id}>
-            <ProductImage src={el.gallery[0]} alt="product" />
-            <ProductName>{el.name}</ProductName>
+        {products?.map((product) => (
+          <ProductCard key={product.id}>
+            <NavLink to={`/${category}/${product.id}`}>
+              <ProductImage src={product.gallery[0]} alt="product" />
+            </NavLink>
+            <ProductName>{product.name}</ProductName>
             <ProductPrice>
               <CurrencyLogo
                 src={availableCurrency.img[CurrencyEnum[currency]]}
                 alt={availableCurrency.name[CurrencyEnum[currency]]}
               />
-              {`${el.prices[CurrencyEnum[currency]].amount}`}
+              {`${product.prices[CurrencyEnum[currency]].amount}`}
             </ProductPrice>
           </ProductCard>
         ))}

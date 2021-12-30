@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderPropsType> = ({ categories }) => {
         {categories.map((cat: { name: string }) => (
           <Category
             key={cat.name}
-            to={`/categories/${cat.name}`}
+            to={`/${cat.name}`}
             onClick={() => {
               setActivLink(cat.name);
             }}

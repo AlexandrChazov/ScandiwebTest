@@ -4,6 +4,9 @@ export const GET_CATEGORIES = gql`
   query {
     categories {
       name
+      products {
+        id
+      }
     }
   }
 `;
