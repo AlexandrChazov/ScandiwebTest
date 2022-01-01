@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink, useParams } from "react-router-dom";
-import brandIcon from "../../assets/VSF.png";
-import emptyCartIcon from "../../assets/empty_cart.png";
-import USD from "../../assets/USD.png";
-import GBP from "../../assets/GBP.png";
-import JPY from "../../assets/JPY.png";
-import AUD from "../../assets/AUD.png";
-import RUB from "../../assets/RUB.png";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { setCurrency } from "../../store/reducers/headerSlice";
-import { AvailableCurrency } from "../../models/IProducts";
-import { GetCategories } from "../../App";
+import brandIcon from "../assets/VSF.png";
+import emptyCartIcon from "../assets/empty_cart.png";
+import USD from "../assets/USD.png";
+import GBP from "../assets/GBP.png";
+import JPY from "../assets/JPY.png";
+import AUD from "../assets/AUD.png";
+import RUB from "../assets/RUB.png";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { setCurrency } from "../store/reducers/headerSlice";
+import { AvailableCurrency } from "../models/IProducts";
+import { GetCategories } from "../App";
+import { CurrencyEnum } from "./Products/Products";
 
 const Wrapper = styled.div`
   display: grid;
@@ -92,7 +93,7 @@ const CurrencyInputItem = styled.div`
   }
 `;
 
-const CurrencyImage = styled.img`
+export const CurrencyImage = styled.img`
   width: 1em;
 `;
 
@@ -108,7 +109,7 @@ type PropsType = {
   categories: Array<GetCategories>;
 };
 
-export const availableCurrency = {
+export const availableCurrencies = {
   name: ["USD", "GBP", "AUD", "JPY", "RUB"] as Array<AvailableCurrency>,
   img: [USD, GBP, AUD, JPY, RUB]
 };
@@ -118,6 +119,7 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
   const [activeLink, setActivLink] = useState(category);
   const [isOpen, setIsOpen] = useState(false);
   const { currency } = useAppSelector((state) => state.header);
+  const currencyIndex = CurrencyEnum[currency];
   const dispatch = useAppDispatch();
 
   return (
@@ -139,21 +141,21 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
       <BrandIcon src={brandIcon} alt="VSF" />
       <RightMenu>
         <CurrencyIcon
-          src={availableCurrency.img[availableCurrency.name.indexOf(currency)]}
-          alt="currencyIcon"
+          src={availableCurrencies.img[currencyIndex]}
+          alt={availableCurrencies.name[currencyIndex]}
           onClick={() => setIsOpen(!isOpen)}
         />
         <CurrencyInput
           isOpen={isOpen.toString()}
           onClick={() => setIsOpen(false)}
         >
-          {availableCurrency.name.map(
+          {availableCurrencies.name.map(
             (name: AvailableCurrency, index: number) => (
               <CurrencyInputItem
                 key={name}
                 onClick={() => dispatch(setCurrency(name))}
               >
-                <CurrencyImage src={availableCurrency.img[index]} alt={name} />
+                <CurrencyImage src={availableCurrencies.img[index]} alt={name} />
                 <span>{name}</span>
               </CurrencyInputItem>
             )

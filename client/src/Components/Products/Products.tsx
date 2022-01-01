@@ -5,7 +5,7 @@ import {
   NavLink, useParams
 } from "react-router-dom";
 import { GET_CATEGORY, ProductsType } from "../../query/category";
-import { availableCurrency, Header } from "./Header";
+import { availableCurrencies } from "../Header";
 import { useAppSelector } from "../../hooks/redux";
 
 const Main = styled.div`
@@ -62,7 +62,7 @@ const CurrencyLogo = styled.img`
 `;
 
 // eslint-disable-next-line no-shadow
-enum CurrencyEnum {
+export enum CurrencyEnum {
   USD,
   GBP,
   AUD,
@@ -70,7 +70,7 @@ enum CurrencyEnum {
   RUB
 }
 
-export const CategoriesPage = () => {
+export const Products = () => {
   const { category } = useParams();
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORY, {
     variables: {
@@ -82,6 +82,7 @@ export const CategoriesPage = () => {
 
   const [products, setProducts] = useState([] as Array<ProductsType>);
   const { currency } = useAppSelector((state) => state.header);
+  const currencyIndex = CurrencyEnum[currency];
 
   useEffect(() => {
     if (!loading) {
@@ -101,8 +102,8 @@ export const CategoriesPage = () => {
             <ProductName>{product.name}</ProductName>
             <ProductPrice>
               <CurrencyLogo
-                src={availableCurrency.img[CurrencyEnum[currency]]}
-                alt={availableCurrency.name[CurrencyEnum[currency]]}
+                src={availableCurrencies.img[currencyIndex]}
+                alt={availableCurrencies.name[currencyIndex]}
               />
               {`${product.prices[CurrencyEnum[currency]].amount}`}
             </ProductPrice>

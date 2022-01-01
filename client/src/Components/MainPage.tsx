@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import { Header } from "../CategoriesPage/Header";
+import { Header } from "./Header";
 
-const Main = styled.div`
+const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
 `;
 
-export const MainContent: React.FC<PropsType> = ({ categories }) => (
-  <Main>
+export const MainPage: React.FC<PropsType> = ({ categories }) => (
+  <MainWrapper>
     <Header categories={categories} />
     <Outlet />
-  </Main>
+  </MainWrapper>
 );
 
 interface PropsType {

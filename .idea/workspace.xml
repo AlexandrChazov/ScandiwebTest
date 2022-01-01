@@ -11,14 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5281f96-d080-45af-9fe3-1d63a3c1f4d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/Components/MainContent/MainContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Components/Product/ProductInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/CategoriesPage/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/StartPage/StartPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/ProductInfo/ProductInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/ProductInfo/ProductInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/query/categories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/query/categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Products/Products.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/CategoriesPage/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/MainContent/MainContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/ProductInfo/ProductInfo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/StartPage/StartPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/StartPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/common/useUrlLastChild.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,13 +66,14 @@
     <property name="ts.external.directory.path" value="D:\scandiweb_test\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\scandiweb_test\client\src\store\reducers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\scandiweb_test" />
       <recent name="D:\scandiweb_test\client" />
       <recent name="D:\scandiweb_test\server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\scandiweb_test\client\src\Components" />
+      <recent name="D:\scandiweb_test\client\src\store\reducers" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start (1)">
@@ -174,7 +176,9 @@
       <workItem from="1640749017526" duration="774000" />
       <workItem from="1640749816581" duration="18405000" />
       <workItem from="1640793420809" duration="814000" />
-      <workItem from="1640841609683" duration="4966000" />
+      <workItem from="1640841609683" duration="5247000" />
+      <workItem from="1640927024115" duration="4991000" />
+      <workItem from="1641050662934" duration="8224000" />
     </task>
     <servers />
   </component>
@@ -218,22 +222,22 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1440.860@0.0.1440.860" timestamp="1640750404070" />
-    <state width="1419" height="159" key="GridCell.Tab.0.bottom" timestamp="1640846555466">
+    <state width="1419" height="159" key="GridCell.Tab.0.bottom" timestamp="1641060479993">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1640846555466" />
-    <state width="1419" height="159" key="GridCell.Tab.0.center" timestamp="1640846555465">
+    <state width="1419" height="159" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1641060479993" />
+    <state width="1419" height="159" key="GridCell.Tab.0.center" timestamp="1641060479993">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1640846555465" />
-    <state width="1419" height="159" key="GridCell.Tab.0.left" timestamp="1640846555465">
+    <state width="1419" height="159" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1641060479993" />
+    <state width="1419" height="159" key="GridCell.Tab.0.left" timestamp="1641060479993">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1640846555465" />
-    <state width="1419" height="159" key="GridCell.Tab.0.right" timestamp="1640846555465">
+    <state width="1419" height="159" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1641060479993" />
+    <state width="1419" height="159" key="GridCell.Tab.0.right" timestamp="1641060479993">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1640846555465" />
+    <state width="1419" height="159" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1641060479993" />
     <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638022655782">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -258,9 +262,9 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="391" y="213" key="scopes/0.0.1440.860@0.0.1440.860" timestamp="1638687091545" />
-    <state x="376" y="83" width="670" height="676" key="search.everywhere.popup" timestamp="1638725210719">
+    <state x="376" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1641051929189">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="376" y="83" width="670" height="676" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1638725210719" />
+    <state x="376" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1641051929189" />
   </component>
 </project>

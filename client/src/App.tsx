@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useQuery } from "@apollo/client";
-import { StartPage } from "./Components/StartPage/StartPage";
-import { CategoriesPage } from "./Components/CategoriesPage/CategoriesPage";
+import { StartPage } from "./Components/StartPage";
+import { Products } from "./Components/Products/Products";
 import { GET_CATEGORIES } from "./query/categories";
-import { ProductInfo } from "./Components/ProductInfo/ProductInfo";
-import { MainContent } from "./Components/MainContent/MainContent";
+import { ProductInfo } from "./Components/Product/ProductInfo";
+import { MainPage } from "./Components/MainPage";
 
 export const App = () => {
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORIES);
@@ -26,8 +26,8 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage categories={categories} />} />
-        <Route path=":category" element={<MainContent categories={categories} />}>
-          <Route index element={<CategoriesPage />} />
+        <Route path=":category" element={<MainPage categories={categories} />}>
+          <Route index element={<Products />} />
           <Route path=":productId" element={<ProductInfo />} />
         </Route>
         <Route path="*" element={<div>Page not found</div>} />
