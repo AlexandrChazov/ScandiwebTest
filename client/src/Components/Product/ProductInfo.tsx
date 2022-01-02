@@ -32,12 +32,66 @@ const BigImage = styled.img`
 `;
 
 const InfoWrapper = styled.div`
-  padding: 1em 0 0 6.5em;
+  padding: 1.5em 0 0 6.5em;
 `;
 
 const Brand = styled.h2`
   margin: 0 auto;
   font-size: 2em;
+`;
+
+const ProductName = styled.h3`
+  margin: 0 auto;
+  font-size: 2em;
+`;
+
+const AttributeName = styled.div`
+  margin: 2em auto 0;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+`;
+
+const AttributeItems = styled.div`
+  margin: 0 auto;
+`;
+
+const AttributeItem = styled.button`
+  margin: 0 auto;
+  width: 4.7em;
+  height: 3.4em;
+  margin: 0.7em 1em 0 0;
+  cursor: pointer;
+`;
+
+const Prise = styled.div`
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1em;
+  margin: 2em auto 1.5em;
+`;
+
+const Cost = styled.span`
+  font-size: 1.4em;
+  font-weight: 700;
+`;
+
+const AddToCartButton = styled.button`
+  background-color: #5ece7b;
+  text-transform: uppercase;
+  font-size: 1em;
+  border: none;
+  color: white;
+  width: 18.3em;
+  height: 3em;
+  margin-top: 1.7em;
+  cursor: pointer;
+`;
+
+const Description = styled.div`
+  font-size: 1em;
+  margin-top: 2.5em;
+  width: 18em;
 `;
 
 export const ProductInfo = () => {
@@ -81,30 +135,34 @@ export const ProductInfo = () => {
       <InfoWrapper>
         <Brand>{product.brand}</Brand>
         <div>
-          <div>{product.id}</div>
+          <ProductName>{product.id}</ProductName>
           {product?.attributes
             && product?.attributes.map((attribute) => (
               <div key={attribute.id}>
-                <div>{attribute.id}</div>
-                {attribute.items
-                  && attribute.items.map((item) => (
-                    <button key={item.value} type="button">
-                      {item.value}
-                    </button>
-                  ))}
+                <AttributeName>{attribute.id}</AttributeName>
+                <AttributeItems>
+                  {attribute.items
+                    && attribute.items.map((item) => (
+                      <AttributeItem key={item.value} type="button">
+                        {item.value}
+                      </AttributeItem>
+                    ))}
+                </AttributeItems>
               </div>
             ))}
         </div>
         <div>
-          <div>price</div>
+          <Prise>price</Prise>
           <CurrencyImage
             src={availableCurrencies.img[currencyIndex]}
             alt={availableCurrencies.name[currencyIndex]}
           />
-          {product.prices && product.prices[currencyIndex].amount}
+          <Cost>{product.prices && product.prices[currencyIndex].amount}</Cost>
         </div>
-        <button type="button">add to cart</button>
-        <div>{product.description?.match(/(?<=>)(.*?)(?=<)/gm)}</div>
+        <AddToCartButton type="button">add to cart</AddToCartButton>
+        <Description>
+          {product.description?.match(/(?<=>)(.*?)(?=<)/gm)}
+        </Description>
       </InfoWrapper>
     </GridWrapper>
   );
