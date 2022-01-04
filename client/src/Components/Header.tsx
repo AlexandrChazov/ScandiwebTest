@@ -83,6 +83,7 @@ const CurrencyInput = styled.div<{ isOpen: string }>`
   position: absolute;
   fit-content;
   box-shadow: 0px 0px 7px 0.5px #c3c3c3;
+  background-color: white;
 `;
 
 const CurrencyInputItem = styled.div`
@@ -95,6 +96,20 @@ const CurrencyInputItem = styled.div`
 
 export const CurrencyImage = styled.img`
   width: 1em;
+`;
+
+const CartLink = styled(NavLink)<{ active: string | null }>`
+  ${(props) => (props.active
+    ? `
+    &::after {
+      position: absolute;
+      transform: translate(-85%, 3.3em);
+      content: "";
+      width: 2%;
+      height: 2px;
+      background: #5ece7b;
+}`
+    : null)}
 `;
 
 const EmptyCartIcon = styled.img`
@@ -116,7 +131,7 @@ export const availableCurrencies = {
 
 export const Header: React.FC<PropsType> = ({ categories }) => {
   const { category } = useParams();
-  const [activeLink, setActivLink] = useState(category);
+  const [activeLink, setActiveLink] = useState(category);
   const [isOpen, setIsOpen] = useState(false);
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
@@ -130,7 +145,7 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
             key={cat.name}
             to={`/${cat.name}`}
             onClick={() => {
-              setActivLink(cat.name);
+              setActiveLink(cat.name);
             }}
             active={activeLink === cat.name ? "true" : null}
           >
@@ -155,13 +170,24 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
                 key={name}
                 onClick={() => dispatch(setCurrency(name))}
               >
-                <CurrencyImage src={availableCurrencies.img[index]} alt={name} />
+                <CurrencyImage
+                  src={availableCurrencies.img[index]}
+                  alt={name}
+                />
                 <span>{name}</span>
               </CurrencyInputItem>
             )
           )}
         </CurrencyInput>
-        <EmptyCartIcon src={emptyCartIcon} alt="emptyCart" />
+        <CartLink
+          to="/cart"
+          onClick={() => {
+            setActiveLink("cart");
+          }}
+          active={activeLink === "cart" ? "true" : null}
+        >
+          <EmptyCartIcon src={emptyCartIcon} alt="emptyCart" />
+        </CartLink>
       </RightMenu>
     </Wrapper>
   );

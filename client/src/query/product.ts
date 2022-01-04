@@ -47,7 +47,7 @@ interface AttributeSet {
   items?: Array<Attribute>;
 }
 
-interface Attribute {
+export interface Attribute {
   id: string;
   value?: string;
   displayValue?: string;

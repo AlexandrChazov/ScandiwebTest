@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { GET_PRODUCT, Product } from "../../query/product";
+import { GET_PRODUCT, Product, Attribute } from "../../query/product";
 import { useAppSelector } from "../../hooks/redux";
 import { CurrencyEnum } from "../Products/Products";
 import { availableCurrencies, CurrencyImage } from "../Header";
+import { Price } from "../../models/IProducts";
 
 const GridWrapper = styled.div`
   padding-top: 3em;
@@ -96,6 +97,7 @@ const Description = styled.div`
 
 export const ProductInfo = () => {
   const { productId } = useParams();
+
   const { data, loading /* , error, refetch */ } = useQuery(GET_PRODUCT, {
     variables: {
       id: productId
@@ -104,8 +106,33 @@ export const ProductInfo = () => {
 
   const [product, setProduct] = useState({} as Product);
   const [selectedImg, setSelectedImg] = useState(0);
+  const [selectedAtrs, setSelectedAtrs] = useState({});
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
+
+  const setAtributes = (id: string, item: Attribute) => {
+    const attrs = {} as { [key: string]: string | undefined };
+    attrs[id] = item.displayValue;
+    setSelectedAtrs({ ...selectedAtrs, ...attrs });
+  };
+
+  const handleAddToCart = () => {
+    let selectedProducts;
+    if (localStorage.getItem("selectedProducts")) {
+      selectedProducts = JSON.parse(localStorage.getItem("selectedProducts") as string);
+    } else {
+      selectedProducts = {};
+    }
+    const key = product.id;
+    const selectedProduct = {
+      brand: product.brand,
+      prices: product.prices,
+      atributes: selectedAtrs,
+      image: product.gallery && product.gallery[0]
+    };
+    selectedProducts[key] = selectedProduct;
+    localStorage.setItem("selectedProducts", JSON.stringify(selectedProducts));
+  };
 
   useEffect(() => {
     if (!loading) {
@@ -143,8 +170,12 @@ export const ProductInfo = () => {
                 <AttributeItems>
                   {attribute.items
                     && attribute.items.map((item) => (
-                      <AttributeItem key={item.value} type="button">
-                        {item.value}
+                      <AttributeItem
+                        key={item.id}
+                        type="button"
+                        onClick={() => setAtributes(attribute.id, item)}
+                      >
+                        {item.displayValue}
                       </AttributeItem>
                     ))}
                 </AttributeItems>
@@ -159,7 +190,9 @@ export const ProductInfo = () => {
           />
           <Cost>{product.prices && product.prices[currencyIndex].amount}</Cost>
         </div>
-        <AddToCartButton type="button">add to cart</AddToCartButton>
+        <AddToCartButton type="button" onClick={() => handleAddToCart()}>
+          add to cart
+        </AddToCartButton>
         <Description>
           {product.description?.match(/(?<=>)(.*?)(?=<)/gm)}
         </Description>

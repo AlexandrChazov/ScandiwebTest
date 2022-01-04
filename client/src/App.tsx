@@ -7,6 +7,7 @@ import { Products } from "./Components/Products/Products";
 import { GET_CATEGORIES } from "./query/categories";
 import { ProductInfo } from "./Components/Product/ProductInfo";
 import { MainPage } from "./Components/MainPage";
+import { Cart } from "./Components/Cart/Cart";
 
 export const App = () => {
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORIES);
@@ -29,6 +30,9 @@ export const App = () => {
         <Route path=":category" element={<MainPage categories={categories} />}>
           <Route index element={<Products />} />
           <Route path=":productId" element={<ProductInfo />} />
+        </Route>
+        <Route path="/cart" element={<MainPage categories={categories} />}>
+          <Route index element={<Cart />} />
         </Route>
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
