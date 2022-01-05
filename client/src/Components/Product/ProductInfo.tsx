@@ -127,8 +127,8 @@ export const ProductInfo = () => {
     const selectedProduct = {
       brand: product.brand,
       prices: product.prices,
-      atributes: selectedAtrs,
-      image: product.gallery && product.gallery[0]
+      attributes: selectedAtrs,
+      image: product.gallery
     };
     selectedProducts[key] = selectedProduct;
     localStorage.setItem("selectedProducts", JSON.stringify(selectedProducts));

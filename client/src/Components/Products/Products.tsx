@@ -14,7 +14,7 @@ const Main = styled.div`
   height: 100vh;
 `;
 
-export const CategoryName = styled.div`
+const CategoryName = styled.div`
   font-size: 2.6em;
   letter-spacing: 0.03em;
   margin: 2em 0em 0em 2.4em;
