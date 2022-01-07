@@ -6,7 +6,6 @@ import { GET_PRODUCT, Product, Attribute } from "../../query/product";
 import { useAppSelector } from "../../hooks/redux";
 import { CurrencyEnum } from "../Products/Products";
 import { availableCurrencies, CurrencyImage } from "../Header";
-import { Price } from "../../models/IProducts";
 
 const GridWrapper = styled.div`
   padding-top: 3em;
@@ -95,7 +94,7 @@ const Description = styled.div`
   width: 18em;
 `;
 
-export const ProductInfo = () => {
+export const ProductInfo = (): JSX.Element => {
   const { productId } = useParams();
 
   const { data, loading /* , error, refetch */ } = useQuery(GET_PRODUCT, {

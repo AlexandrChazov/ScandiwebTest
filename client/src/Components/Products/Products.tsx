@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
-import {
-  NavLink, useParams
-} from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { GET_CATEGORY, ProductsType } from "../../query/category";
 import { availableCurrencies } from "../Header";
 import { useAppSelector } from "../../hooks/redux";
@@ -70,7 +68,7 @@ export enum CurrencyEnum {
   RUB
 }
 
-export const Products = () => {
+export const Products = (): JSX.Element => {
   const { category } = useParams();
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORY, {
     variables: {

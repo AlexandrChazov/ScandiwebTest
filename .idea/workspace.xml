@@ -11,11 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5281f96-d080-45af-9fe3-1d63a3c1f4d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/Components/Cart/CartItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Cart/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Cart/Cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Product/ProductInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Product/ProductInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Products/Products.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Products/Products.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/hooks/redux.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/hooks/redux.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reportWebVitals.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,12 +184,17 @@
       <workItem from="1641183926237" duration="22733000" />
       <workItem from="1641270582744" duration="5120000" />
       <workItem from="1641285190131" duration="8000" />
-      <workItem from="1641368497792" duration="16728000" />
+      <workItem from="1641368497792" duration="17748000" />
+      <workItem from="1641456398511" duration="669000" />
+      <workItem from="1641572830128" duration="5076000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.eslintignore" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -223,22 +233,22 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1440.860@0.0.1440.860" timestamp="1640750404070" />
-    <state width="1419" height="159" key="GridCell.Tab.0.bottom" timestamp="1641393597045">
+    <state width="1419" height="269" key="GridCell.Tab.0.bottom" timestamp="1641577714874">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1641393597045" />
-    <state width="1419" height="159" key="GridCell.Tab.0.center" timestamp="1641393597044">
+    <state width="1419" height="269" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1641577714874" />
+    <state width="1419" height="269" key="GridCell.Tab.0.center" timestamp="1641577714873">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1641393597044" />
-    <state width="1419" height="159" key="GridCell.Tab.0.left" timestamp="1641393597044">
+    <state width="1419" height="269" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1641577714873" />
+    <state width="1419" height="269" key="GridCell.Tab.0.left" timestamp="1641577714873">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1641393597044" />
-    <state width="1419" height="159" key="GridCell.Tab.0.right" timestamp="1641393597044">
+    <state width="1419" height="269" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1641577714873" />
+    <state width="1419" height="269" key="GridCell.Tab.0.right" timestamp="1641577714873">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="159" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1641393597044" />
+    <state width="1419" height="269" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1641577714873" />
     <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638022655782">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

@@ -9,7 +9,7 @@ import { ProductInfo } from "./Components/Product/ProductInfo";
 import { MainPage } from "./Components/MainPage";
 import { Cart } from "./Components/Cart/Cart";
 
-export const App = () => {
+export const App = (): JSX.Element => {
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORIES);
   const [categories, setCategories] = useState([] as Array<GetCategories>);
 

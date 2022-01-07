@@ -17,15 +17,13 @@ const PageName = styled.h1`
   text-transform: uppercase;
 `;
 
-export const Cart = () => {
+export const Cart = (): JSX.Element => {
   const selectedProducts = JSON.parse(
     localStorage.getItem("selectedProducts") as string
   ) as ISelectedProducts;
 
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
-
-  console.log(selectedProducts);
 
   return (
     <Wrapper>

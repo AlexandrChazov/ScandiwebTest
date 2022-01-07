@@ -13,6 +13,7 @@ import { setCurrency } from "../store/reducers/headerSlice";
 import { AvailableCurrency } from "../models/IProducts";
 import { GetCategories } from "../App";
 import { CurrencyEnum } from "./Products/Products";
+import { ISelectedProducts } from "./Cart/Cart";
 
 const Wrapper = styled.div`
   display: grid;
@@ -57,11 +58,12 @@ const BrandIcon = styled.img`
 `;
 
 const RightMenu = styled.div`
+  display: flex;
   justify-self: end;
   align-self: center;
   padding-top: 0.8em;
   padding-right: 5.2em;
-  & div {
+  > div {
     padding: 0 1em;
   }
 `;
@@ -84,6 +86,7 @@ const CurrencyInput = styled.div<{ isOpen: string }>`
   fit-content;
   box-shadow: 0px 0px 7px 0.5px #c3c3c3;
   background-color: white;
+  z-index: 1;
 `;
 
 const CurrencyInputItem = styled.div`
@@ -105,11 +108,15 @@ const CartLink = styled(NavLink)<{ active: string | null }>`
       position: absolute;
       transform: translate(-85%, 3.3em);
       content: "";
-      width: 2%;
+      width: 50%;
       height: 2px;
       background: #5ece7b;
 }`
     : null)}
+`;
+
+const CartIconWrapper = styled.div`
+  position: relative;
 `;
 
 const EmptyCartIcon = styled.img`
@@ -118,6 +125,22 @@ const EmptyCartIcon = styled.img`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const GoodsInCart = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -25%;
+  color: white;
+  background-color: black;
+  left: 55%;
+  border-radius: 100%;
+  font-size: 0.7em;
+  height: 1.7em;
+  width: 1.7em;
+  padding: 0;
 `;
 
 type PropsType = {
@@ -130,8 +153,13 @@ export const availableCurrencies = {
 };
 
 export const Header: React.FC<PropsType> = ({ categories }) => {
+  const cart = JSON.parse(
+    localStorage.getItem("selectedProducts") as string
+  ) as ISelectedProducts;
+  const goodsCount = cart && Object.keys(cart).length;
   const { category } = useParams();
   const [activeLink, setActiveLink] = useState(category);
+  // const [goodsCount, setGoodsCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
@@ -179,15 +207,18 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
             )
           )}
         </CurrencyInput>
-        <CartLink
-          to="/cart"
-          onClick={() => {
-            setActiveLink("cart");
-          }}
-          active={activeLink === "cart" ? "true" : null}
-        >
-          <EmptyCartIcon src={emptyCartIcon} alt="emptyCart" />
-        </CartLink>
+        <CartIconWrapper>
+          <CartLink
+            to="/cart"
+            onClick={() => {
+              setActiveLink("cart");
+            }}
+            active={activeLink === "cart" ? "true" : null}
+          >
+            <EmptyCartIcon src={emptyCartIcon} alt="emptyCart" />
+            {!!goodsCount && <GoodsInCart>{goodsCount}</GoodsInCart>}
+          </CartLink>
+        </CartIconWrapper>
       </RightMenu>
     </Wrapper>
   );
