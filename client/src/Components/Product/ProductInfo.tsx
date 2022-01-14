@@ -6,7 +6,7 @@ import { GET_PRODUCT, Product, Attribute } from "../../query/product";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { CurrencyEnum } from "../Products/Products";
 import { availableCurrencies, CurrencyImage } from "../Header";
-import { setCartItemsCount } from "../../store/reducers/headerSlice";
+import { setCartItemsCount, setSelectedProducts } from "../../store/reducers/cartSlice";
 
 const GridWrapper = styled.div`
   padding-top: 3em;
@@ -129,11 +129,13 @@ export const ProductInfo = (): JSX.Element => {
       brand: product.brand,
       prices: product.prices,
       attributes: selectedAtrs,
-      image: product.gallery
+      image: product.gallery,
+      count: 1
     };
     selectedProducts[key] = selectedProduct;
     localStorage.setItem("selectedProducts", JSON.stringify(selectedProducts));
     dispatch(setCartItemsCount(Object.keys(selectedProducts).length));
+    dispatch(setSelectedProducts(selectedProducts));
   };
 
   useEffect(() => {

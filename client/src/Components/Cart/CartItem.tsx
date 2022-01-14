@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { availableCurrencies } from "../Header";
-import { ISelectedProducts } from "./Cart";
 import ArrowToLeft from "../../assets/arrowLeft.svg";
 import ArrowToRight from "../../assets/arrowRight.svg";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { SelectedProductType, setSelectedProducts } from "../../store/reducers/cartSlice";
 
 const Product = styled.div<{ isInHeader: boolean }>`
   ${(props) => (props.isInHeader
@@ -187,9 +188,12 @@ export const CartItem: React.FC<PropsType> = ({
   goods,
   isInHeader
 }) => {
-  const [amount, setAmount] = useState(1);
+  const amount = useAppSelector(
+    (state) => state.cart.selectedProducts[goods]?.count
+  );
   const [index, setIndex] = useState(0);
   const [src, setSrc] = useState("");
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (selectedProducts[goods].image) {
@@ -222,6 +226,18 @@ export const CartItem: React.FC<PropsType> = ({
     }
   };
 
+  const handleChangeAmount = (more: boolean) => {
+    const changedSelectedProducts = {
+      ...selectedProducts,
+      [goods]: {
+        ...selectedProducts[goods],
+        count: more ? amount + 1 : amount - 1
+      }
+    };
+    localStorage.setItem("selectedProducts", JSON.stringify(changedSelectedProducts));
+    dispatch(setSelectedProducts(changedSelectedProducts));
+  };
+
   return (
     <Product isInHeader={isInHeader}>
       <div>
@@ -237,24 +253,21 @@ export const CartItem: React.FC<PropsType> = ({
         </ProductPrice>
         <AttributesWrapper>
           {selectedProducts[goods].attributes
-            && Object.keys(selectedProducts[goods].attributes).map((atr) => (
-              <Attribute isInHeader={isInHeader}>
+            && Object.keys(selectedProducts[goods].attributes).map(((atr:any) => ( // todo
+              <Attribute isInHeader={isInHeader} key={atr}>
                 {selectedProducts[goods].attributes[atr]}
               </Attribute>
-            ))}
+            )))}
         </AttributesWrapper>
       </div>
       <AmountWrapper>
         <ButtonsWrapper isInHeader={isInHeader}>
-          <ChangeAmountButton
-            onClick={() => setAmount((value) => value + 1)}
-            isInHeader={isInHeader}
-          >
+          <ChangeAmountButton onClick={() => handleChangeAmount(true)} isInHeader={isInHeader}>
             +
           </ChangeAmountButton>
           <Amount isInHeader={isInHeader}>{amount}</Amount>
           <ChangeAmountButton
-            onClick={() => setAmount((value) => value - 1)}
+            onClick={() => handleChangeAmount(false)}
             disabled={amount === 1}
             isInHeader={isInHeader}
           >
@@ -283,7 +296,7 @@ export const CartItem: React.FC<PropsType> = ({
 
 interface PropsType {
   goods: string;
-  selectedProducts: ISelectedProducts;
+  selectedProducts: { [key: string]: SelectedProductType };
   currencyIndex: number;
   isInHeader: boolean;
 }

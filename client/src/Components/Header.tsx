@@ -153,6 +153,7 @@ const CartPreview = styled.div`
   box-shadow: 0px 0px 16px 3px #9d9d9d;
   padding: 0.7em 1em 1em 1.2em;
   background-color: white;
+  z-index: 1;
 `;
 
 const CartTitle = styled.h4`
@@ -180,7 +181,8 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
   const { category } = useParams();
   const [activeLink, setActiveLink] = useState(category);
   const [isOpen, setIsOpen] = useState(false);
-  const { currency, cartItemsCount } = useAppSelector((state) => state.header);
+  const { currency } = useAppSelector((state) => state.header);
+  const { cartItemsCount } = useAppSelector((state) => state.cart);
   const currencyIndex = CurrencyEnum[currency];
   const dispatch = useAppDispatch();
   const cartWindow = useRef<HTMLDivElement>(null);

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { CurrencyEnum } from "../Products/Products";
 import { useAppSelector } from "../../hooks/redux";
-import { Price } from "../../models/IProducts";
 import { CartItem } from "./CartItem";
 
 const Wrapper = styled.div`
@@ -18,9 +17,9 @@ const PageName = styled.h1`
 `;
 
 export const Cart: React.FC<PropsType> = ({ isInHeader }): JSX.Element => {
-  const selectedProducts = JSON.parse(
-    localStorage.getItem("selectedProducts") as string
-  ) as ISelectedProducts;
+  const selectedProducts = useAppSelector(
+    (state) => state.cart.selectedProducts
+  );
 
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
@@ -28,30 +27,20 @@ export const Cart: React.FC<PropsType> = ({ isInHeader }): JSX.Element => {
   return (
     <Wrapper>
       {!isInHeader && <PageName>Cart</PageName>}
-      {selectedProducts && Object.keys(selectedProducts).map((goods) => (
-        <CartItem
-          key={goods}
-          goods={goods}
-          selectedProducts={selectedProducts}
-          currencyIndex={currencyIndex}
-          isInHeader={isInHeader}
-        />
-      ))}
+      {selectedProducts
+        && Object.keys(selectedProducts).map((goods) => (
+          <CartItem
+            key={goods}
+            goods={goods}
+            selectedProducts={selectedProducts}
+            currencyIndex={currencyIndex}
+            isInHeader={isInHeader}
+          />
+        ))}
     </Wrapper>
   );
 };
 
 interface PropsType {
-  isInHeader: boolean
+  isInHeader: boolean;
 }
-
-interface ISelectedProduct {
-  brand: string;
-  prices: Array<Price>;
-  image?: string[];
-  attributes: { [key: string]: string };
-}
-
-export type ISelectedProducts = {
-  [key: string]: ISelectedProduct;
-};

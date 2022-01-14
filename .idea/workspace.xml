@@ -11,14 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5281f96-d080-45af-9fe3-1d63a3c1f4d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/store/reducers/cartSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Cart/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Cart/Cart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Cart/CartItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Cart/CartItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Components/Product/ProductInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Product/ProductInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/reducers/categoriesSlice.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/store/reducers/headerSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/reducers/headerSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     <property name="prettier.files.pattern" value="client/src/{**/*,*}.{js,ts,jsx,tsx}" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\scandiweb_test\node_modules\prettier" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="D:\scandiweb_test\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -187,7 +188,7 @@
       <workItem from="1641572830128" duration="5422000" />
       <workItem from="1641655164722" duration="7232000" />
       <workItem from="1641800860336" duration="5524000" />
-      <workItem from="1642126347489" duration="9329000" />
+      <workItem from="1642126347489" duration="19521000" />
     </task>
     <servers />
   </component>
@@ -210,10 +211,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="434" y="191" key="#ESLint" timestamp="1638684082162">
+    <state x="434" y="191" key="#ESLint" timestamp="1642151287521">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="434" y="191" key="#ESLint/0.0.1440.860@0.0.1440.860" timestamp="1638684082162" />
+    <state x="434" y="191" key="#ESLint/0.0.1440.860@0.0.1440.860" timestamp="1642151287521" />
     <state x="495" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638011119306">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -234,30 +235,30 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1440.860@0.0.1440.860" timestamp="1640750404070" />
-    <state width="1419" height="187" key="GridCell.Tab.0.bottom" timestamp="1642142561224">
+    <state width="1419" height="187" key="GridCell.Tab.0.bottom" timestamp="1642151681145">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="187" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1642142561224" />
-    <state width="1419" height="187" key="GridCell.Tab.0.center" timestamp="1642142561224">
+    <state width="1419" height="187" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1642151681145" />
+    <state width="1419" height="187" key="GridCell.Tab.0.center" timestamp="1642151681144">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="187" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1642142561224" />
-    <state width="1419" height="187" key="GridCell.Tab.0.left" timestamp="1642142561223">
+    <state width="1419" height="187" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1642151681144" />
+    <state width="1419" height="187" key="GridCell.Tab.0.left" timestamp="1642151681144">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="187" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1642142561223" />
-    <state width="1419" height="187" key="GridCell.Tab.0.right" timestamp="1642142561224">
+    <state width="1419" height="187" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1642151681144" />
+    <state width="1419" height="187" key="GridCell.Tab.0.right" timestamp="1642151681144">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1419" height="187" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1642142561224" />
+    <state width="1419" height="187" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1642151681144" />
     <state x="583" y="132" key="RollbackChangesDialog" timestamp="1638022655782">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="583" y="132" key="RollbackChangesDialog/0.0.1440.860@0.0.1440.860" timestamp="1638022655782" />
-    <state x="101" y="0" key="SettingsEditor" timestamp="1638816714902">
+    <state x="101" y="0" key="SettingsEditor" timestamp="1642145321285">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="101" y="0" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1638816714902" />
+    <state x="101" y="0" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1642145321285" />
     <state x="567" y="344" key="VCS.ChangelistChooser" timestamp="1640749659681">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -278,9 +279,21 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="391" y="213" key="scopes/0.0.1440.860@0.0.1440.860" timestamp="1638687091545" />
-    <state x="376" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1641051929189">
+    <state x="376" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1642152141849">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="376" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1641051929189" />
+    <state x="376" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1642152141849" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/Components/Cart/Cart.tsx</url>
+          <line>43</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
