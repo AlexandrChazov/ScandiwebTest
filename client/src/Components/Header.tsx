@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NavLink, useParams } from "react-router-dom";
 import brandIcon from "../assets/VSF.png";
@@ -13,7 +13,7 @@ import { setCurrency } from "../store/reducers/headerSlice";
 import { AvailableCurrency } from "../models/IProducts";
 import { GetCategories } from "../App";
 import { CurrencyEnum } from "./Products/Products";
-import { ISelectedProducts } from "./Cart/Cart";
+import { Cart } from "./Cart/Cart";
 
 const Wrapper = styled.div`
   display: grid;
@@ -143,6 +143,30 @@ const GoodsInCart = styled.div`
   padding: 0;
 `;
 
+const CartPreview = styled.div`
+  display: none;
+  position: absolute;
+  width: 20.2em;
+  height: 34em;
+  left: 72%;
+  top: 18%;
+  box-shadow: 0px 0px 16px 3px #9d9d9d;
+  padding: 0.7em 1em 1em 1.2em;
+  background-color: white;
+`;
+
+const CartTitle = styled.h4`
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 2em;
+`;
+
+const CartWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
 type PropsType = {
   categories: Array<GetCategories>;
 };
@@ -153,17 +177,33 @@ export const availableCurrencies = {
 };
 
 export const Header: React.FC<PropsType> = ({ categories }) => {
-  const cart = JSON.parse(
-    localStorage.getItem("selectedProducts") as string
-  ) as ISelectedProducts;
-  const goodsCount = cart && Object.keys(cart).length;
   const { category } = useParams();
   const [activeLink, setActiveLink] = useState(category);
-  // const [goodsCount, setGoodsCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const { currency } = useAppSelector((state) => state.header);
+  const { currency, cartItemsCount } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
   const dispatch = useAppDispatch();
+  const cartWindow = useRef<HTMLDivElement>(null);
+  const cartIcon = useRef<HTMLDivElement>(null);
+
+  function onCartIconOver() {
+    if (cartWindow.current) {
+      cartWindow.current.style.display = "block";
+    }
+  }
+
+  function onCartIconOut() {
+    if (cartWindow.current) {
+      cartWindow.current.style.display = "none";
+    }
+  }
+
+  useEffect(() => {
+    if (cartIcon.current) {
+      cartIcon.current.addEventListener("mouseover", onCartIconOver);
+      cartIcon.current.addEventListener("mouseout", onCartIconOut);
+    }
+  }, []);
 
   return (
     <Wrapper>
@@ -207,7 +247,7 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
             )
           )}
         </CurrencyInput>
-        <CartIconWrapper>
+        <CartIconWrapper ref={cartIcon}>
           <CartLink
             to="/cart"
             onClick={() => {
@@ -216,10 +256,16 @@ export const Header: React.FC<PropsType> = ({ categories }) => {
             active={activeLink === "cart" ? "true" : null}
           >
             <EmptyCartIcon src={emptyCartIcon} alt="emptyCart" />
-            {!!goodsCount && <GoodsInCart>{goodsCount}</GoodsInCart>}
+            {!!cartItemsCount && <GoodsInCart>{cartItemsCount}</GoodsInCart>}
           </CartLink>
         </CartIconWrapper>
       </RightMenu>
+      <CartPreview ref={cartWindow}>
+        <CartWrapper>
+          <CartTitle>My bag</CartTitle>
+          <Cart isInHeader />
+        </CartWrapper>
+      </CartPreview>
     </Wrapper>
   );
 };

@@ -17,7 +17,7 @@ const PageName = styled.h1`
   text-transform: uppercase;
 `;
 
-export const Cart = (): JSX.Element => {
+export const Cart: React.FC<PropsType> = ({ isInHeader }): JSX.Element => {
   const selectedProducts = JSON.parse(
     localStorage.getItem("selectedProducts") as string
   ) as ISelectedProducts;
@@ -27,22 +27,23 @@ export const Cart = (): JSX.Element => {
 
   return (
     <Wrapper>
-      <PageName>Cart</PageName>
-      {Object.keys(selectedProducts).map((goods) => (
+      {!isInHeader && <PageName>Cart</PageName>}
+      {selectedProducts && Object.keys(selectedProducts).map((goods) => (
         <CartItem
           key={goods}
           goods={goods}
           selectedProducts={selectedProducts}
           currencyIndex={currencyIndex}
+          isInHeader={isInHeader}
         />
       ))}
     </Wrapper>
   );
 };
 
-export type ISelectedProducts = {
-  [key: string]: ISelectedProduct;
-};
+interface PropsType {
+  isInHeader: boolean
+}
 
 interface ISelectedProduct {
   brand: string;
@@ -50,3 +51,7 @@ interface ISelectedProduct {
   image?: string[];
   attributes: { [key: string]: string };
 }
+
+export type ISelectedProducts = {
+  [key: string]: ISelectedProduct;
+};

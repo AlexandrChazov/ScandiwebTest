@@ -3,9 +3,10 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { GET_PRODUCT, Product, Attribute } from "../../query/product";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { CurrencyEnum } from "../Products/Products";
 import { availableCurrencies, CurrencyImage } from "../Header";
+import { setCartItemsCount } from "../../store/reducers/headerSlice";
 
 const GridWrapper = styled.div`
   padding-top: 3em;
@@ -108,6 +109,7 @@ export const ProductInfo = (): JSX.Element => {
   const [selectedAtrs, setSelectedAtrs] = useState({});
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
+  const dispatch = useAppDispatch();
 
   const setAtributes = (id: string, item: Attribute) => {
     const attrs = {} as { [key: string]: string | undefined };
@@ -131,6 +133,7 @@ export const ProductInfo = (): JSX.Element => {
     };
     selectedProducts[key] = selectedProduct;
     localStorage.setItem("selectedProducts", JSON.stringify(selectedProducts));
+    dispatch(setCartItemsCount(Object.keys(selectedProducts).length));
   };
 
   useEffect(() => {

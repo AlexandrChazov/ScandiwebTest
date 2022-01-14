@@ -32,7 +32,7 @@ export const App = (): JSX.Element => {
           <Route path=":productId" element={<ProductInfo />} />
         </Route>
         <Route path="/cart" element={<MainPage categories={categories} />}>
-          <Route index element={<Cart />} />
+          <Route index element={<Cart isInHeader={false} />} />
         </Route>
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
