@@ -5,13 +5,14 @@ import { useQuery } from "@apollo/client";
 import { StartPage } from "./Components/StartPage";
 import { Products } from "./Components/Products/Products";
 import { GET_CATEGORIES } from "./query/categories";
-import { ProductInfo } from "./Components/Product/ProductInfo";
+import { Product } from "./Components/Product/Product";
 import { MainPage } from "./Components/MainPage";
 import { Cart } from "./Components/Cart/Cart";
+import { Category } from "./models/types";
 
 export const App = (): JSX.Element => {
   const { data, loading /* , error, refetch */ } = useQuery(GET_CATEGORIES);
-  const [categories, setCategories] = useState([] as Array<GetCategories>);
+  const [categories, setCategories] = useState([] as CategoriesNames[]);
 
   useEffect(() => {
     if (!loading) {
@@ -29,7 +30,7 @@ export const App = (): JSX.Element => {
         <Route path="/" element={<StartPage categories={categories} />} />
         <Route path=":category" element={<MainPage categories={categories} />}>
           <Route index element={<Products />} />
-          <Route path=":productId" element={<ProductInfo />} />
+          <Route path=":productId" element={<Product />} />
         </Route>
         <Route path="/cart" element={<MainPage categories={categories} />}>
           <Route index element={<Cart isInHeader={false} />} />
@@ -40,6 +41,4 @@ export const App = (): JSX.Element => {
   );
 };
 
-export interface GetCategories {
-  name: string;
-}
+export type CategoriesNames = Omit<Category, "products">;

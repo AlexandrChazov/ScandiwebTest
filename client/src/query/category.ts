@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { ProductInfo } from "../models/types";
 
 export const GET_CATEGORY = gql`
   query category($input: CategoryInput) {
@@ -16,14 +17,11 @@ export const GET_CATEGORY = gql`
   }
 `;
 
-export type ProductsType = {
-  id: number;
-  name: string;
-  gallery: string;
-  prices: Array<PricesType>;
-};
+// interface Products extends Omit<Category, "name" | "products"> {
+//   products: Product;
+// }
 
-type PricesType = {
-  currency: string;
-  amount: number;
-};
+export type Product = Omit<
+  ProductInfo,
+  "description" | "category" | "brand" | "inStock" | "attributes"
+>;

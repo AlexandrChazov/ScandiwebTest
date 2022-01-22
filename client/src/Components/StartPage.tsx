@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { CategoriesNames } from "../App";
 
 const Main = styled.div`
   display: flex;
@@ -24,9 +25,9 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export const StartPage: React.FC<MainPagePropsType> = ({ categories }) => (
+export const StartPage: React.FC<PropsType> = ({ categories }) => (
   <Main>
-    {categories?.map((category: { name: string }) => (
+    {categories?.map((category) => (
       <div key={category.name}>
         <StyledNavLink to={`/${category.name}`}>
           {category.name}
@@ -36,6 +37,6 @@ export const StartPage: React.FC<MainPagePropsType> = ({ categories }) => (
   </Main>
 );
 
-type MainPagePropsType = {
-  categories: Array<{ name: string }>;
-};
+interface PropsType {
+  categories: CategoriesNames[];
+}

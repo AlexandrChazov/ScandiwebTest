@@ -11,7 +11,7 @@ import RUB from "../assets/RUB.png";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { setCurrency } from "../store/reducers/headerSlice";
 import { AvailableCurrency } from "../models/IProducts";
-import { GetCategories } from "../App";
+import { CategoriesNames } from "../App";
 import { CurrencyEnum } from "./Products/Products";
 import { Cart } from "./Cart/Cart";
 
@@ -169,7 +169,7 @@ const CartWrapper = styled.div`
 `;
 
 type PropsType = {
-  categories: Array<GetCategories>;
+  categories: CategoriesNames[];
 };
 
 export const availableCurrencies = {

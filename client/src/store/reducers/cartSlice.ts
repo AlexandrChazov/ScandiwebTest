@@ -4,9 +4,9 @@ import { Price } from "../../models/IProducts";
 export type SelectedProductType = {
   brand: string;
   prices: Price[];
-  attributes: Array<{ [key: string]: string }>;
-  image: string[];
   count: number;
+  attributes: { [key: string]: string };
+  image: string[];
 };
 
 type InitialStateType = {
@@ -20,7 +20,7 @@ const selectedProducts = JSON.parse(
 const goodsCount = selectedProducts && Object.keys(selectedProducts).length;
 
 const initialState: InitialStateType = {
-  selectedProducts: selectedProducts || {},
+  selectedProducts,
   cartItemsCount: goodsCount
 };
 

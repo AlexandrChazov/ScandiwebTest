@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { GET_PRODUCT, Product, Attribute } from "../../query/product";
+import { GET_PRODUCT } from "../../query/product";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { CurrencyEnum } from "../Products/Products";
 import { availableCurrencies, CurrencyImage } from "../Header";
-import { setCartItemsCount, setSelectedProducts } from "../../store/reducers/cartSlice";
+import {
+  SelectedProductType,
+  setCartItemsCount,
+  setSelectedProducts
+} from "../../store/reducers/cartSlice";
+import { Attribute, AttributeSet, ProductInfo } from "../../models/types";
 
 const GridWrapper = styled.div`
   padding-top: 3em;
@@ -95,7 +100,7 @@ const Description = styled.div`
   width: 18em;
 `;
 
-export const ProductInfo = (): JSX.Element => {
+export const Product = (): JSX.Element => {
   const { productId } = useParams();
 
   const { data, loading /* , error, refetch */ } = useQuery(GET_PRODUCT, {
@@ -104,7 +109,7 @@ export const ProductInfo = (): JSX.Element => {
     }
   });
 
-  const [product, setProduct] = useState({} as Product);
+  const [product, setProduct] = useState({} as ProductInfo);
   const [selectedImg, setSelectedImg] = useState(0);
   const [selectedAtrs, setSelectedAtrs] = useState({});
   const { currency } = useAppSelector((state) => state.header);
@@ -120,16 +125,18 @@ export const ProductInfo = (): JSX.Element => {
   const handleAddToCart = () => {
     let selectedProducts;
     if (localStorage.getItem("selectedProducts")) {
-      selectedProducts = JSON.parse(localStorage.getItem("selectedProducts") as string);
+      selectedProducts = JSON.parse(
+        localStorage.getItem("selectedProducts") as string
+      );
     } else {
       selectedProducts = {};
     }
     const key = product.id;
-    const selectedProduct = {
+    const selectedProduct: SelectedProductType = {
       brand: product.brand,
       prices: product.prices,
       attributes: selectedAtrs,
-      image: product.gallery,
+      image: product.gallery || [],
       count: 1
     };
     selectedProducts[key] = selectedProduct;

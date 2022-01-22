@@ -196,27 +196,19 @@ export const CartItem: React.FC<PropsType> = ({
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (selectedProducts[goods].image) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore todo
-      setSrc(selectedProducts[goods].image[index]);
-    }
+    setSrc(selectedProducts[goods].image[index]);
   }, [index]);
 
   const handleChageImage = (arrowTo: string) => {
     if (selectedProducts[goods].image) {
       if (arrowTo === "prev") {
         if (index === 0) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore todo
           setIndex(selectedProducts[goods].image.length - 1);
         } else {
           setIndex((ind) => ind - 1);
         }
       }
       if (arrowTo === "next") {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore todo
         if (index === selectedProducts[goods].image.length - 1) {
           setIndex(0);
         } else {
@@ -253,11 +245,11 @@ export const CartItem: React.FC<PropsType> = ({
         </ProductPrice>
         <AttributesWrapper>
           {selectedProducts[goods].attributes
-            && Object.keys(selectedProducts[goods].attributes).map(((atr:any) => ( // todo
-              <Attribute isInHeader={isInHeader} key={atr}>
-                {selectedProducts[goods].attributes[atr]}
-              </Attribute>
-            )))}
+          && Object.keys(selectedProducts[goods].attributes).map((atr: string) => (
+            <Attribute isInHeader={isInHeader} key={atr}>
+              {selectedProducts[goods].attributes[atr]}
+            </Attribute>
+          ))}
         </AttributesWrapper>
       </div>
       <AmountWrapper>

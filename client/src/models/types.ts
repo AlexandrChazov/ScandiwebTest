@@ -1,26 +1,31 @@
-export interface Product {
+export interface Category {
+  name: string;
+  products: ProductInfo[];
+}
+
+export interface ProductInfo {
   id: string;
   name: string;
-  inStock: boolean;
-  gallery: string;
   description: string;
   category: string;
-  attributes: AttributeSet;
-  prices: Price;
+  prices: Price[];
   brand: string;
+  inStock?: boolean;
+  gallery?: string[];
+  attributes?: AttributeSet[];
 }
 
 export interface AttributeSet {
   id: string;
-  name: string;
-  type: string;
-  items: Attribute;
+  name?: string;
+  type?: string;
+  items?: Attribute[];
 }
 
 export interface Attribute {
-  displayValue: string;
-  value: string;
   id: string;
+  displayValue?: string;
+  value?: string;
 }
 
 export interface Price {

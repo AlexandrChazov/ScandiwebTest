@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 import { NavLink, useParams } from "react-router-dom";
-import { GET_CATEGORY, ProductsType } from "../../query/category";
+import { GET_CATEGORY, Product } from "../../query/category";
 import { availableCurrencies } from "../Header";
 import { useAppSelector } from "../../hooks/redux";
 
@@ -38,6 +38,12 @@ const ProductCard = styled.div`
 const ProductImage = styled.img`
   width: 22em;
   height: 20.6em;
+`;
+
+const NoImage = styled.img`
+  width: 22em;
+  height: 20.6em;
+  background-color: grey;
 `;
 
 const ProductName = styled.div`
@@ -78,7 +84,7 @@ export const Products = (): JSX.Element => {
     }
   });
 
-  const [products, setProducts] = useState([] as Array<ProductsType>);
+  const [products, setProducts] = useState([] as Product[]);
   const { currency } = useAppSelector((state) => state.header);
   const currencyIndex = CurrencyEnum[currency];
 
@@ -95,7 +101,11 @@ export const Products = (): JSX.Element => {
         {products?.map((product) => (
           <ProductCard key={product.id}>
             <NavLink to={`/${category}/${product.id}`}>
-              <ProductImage src={product.gallery[0]} alt="product" />
+              {
+                product.gallery
+                  ? <ProductImage src={product.gallery[0]} alt={product.id} />
+                  : <NoImage />
+              }
             </NavLink>
             <ProductName>{product.name}</ProductName>
             <ProductPrice>
